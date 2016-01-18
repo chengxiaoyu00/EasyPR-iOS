@@ -292,7 +292,15 @@ CPlateRecognize pr;
     [SVProgressHUD dismiss];
     return plateimage;
 }
+- (void)TraningPressed:(id)sund
+{
+    NSLog(@"识别按钮");
+    UIImage *temp_image=[UIImageCVMatConverter scaleAndRotateImageBackCamera:imageView.image];
+    source_image=[UIImageCVMatConverter cvMatFromUIImage:temp_image];
+    [self plateRecognition:source_image];
 
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
